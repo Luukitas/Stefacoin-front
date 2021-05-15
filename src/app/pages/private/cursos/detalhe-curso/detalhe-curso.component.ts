@@ -102,6 +102,8 @@ export class DetalheCursoComponent implements OnInit {
     this.cursoService.excluir(id).subscribe((retorno) => {
       this.toastr.success('Usuario excluido com sucesso')
       this.router.navigate(['/lista-curso'])
+    }, (err) => {
+      this.toastr.error(err.error.message)
     })
     this.ngOnInit()
   }
