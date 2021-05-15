@@ -1,0 +1,128 @@
+<div class="row my-4">
+
+  <div class="col-lg-3 col-md-12 dados-curso">
+
+    <p class="h6"><i class="fas fa-star"></i> <span> {{notaCurso}}</span></p>
+    <p class="h2 mb-5"><span>{{curso.nome}}</span></p>
+    <p class="h6">Descrição: <span>{{curso.descricao}}</span></p>
+    <p class="h6" *ngIf="curso.idProfessor != 0">Professor: <span>{{professor.nome}}</span></p>
+    
+
+    <div *ngIf="usuario.tipo == 2">
+      <div *ngIf="avaliou == true">
+        <p class="h6">Sua avaliação: <span>{{valorNota}}</span></p>
+      </div>
+      <button *ngIf="avaliou == false" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalAvaliar" (click)="abrirAdicionar()">Avaliar curso</button>
+      <div class="modal fade texto-curso" id="modalAvaliar" tabindex="-1" aria-labelledby="modalAvaliar" aria-hidden="true">
+    
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alterar cadastro:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label for="inputGroupSelect01">Nota:</label>
+              <select [(ngModel)]="valorNota" class="custom-select" id="inputGroupSelect01">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <button class="btn btn-primary my-2" (click)="avaliarCurso()">Avaliar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="usuario.tipo == 1">
+      <button type="button" class="btn btn-editar my-2 mt-5" (click)="cadastrarAula()">Cadastrar Aula</button>
+      <button type="button" class="btn btn-editar" data-toggle="modal" data-target="#modalAdicionar" (click)="abrirAdicionar()">Adicionar professor</button>
+      <button type="button" class="btn btn-editar my-2" data-toggle="modal" data-target="#modalEdicao" (click)="abrirEditar(curso)">Editar curso</button>
+      <button type="button" class="btn btn-danger" (click)="excluirCurso(curso.id)">Excluir curso</button>
+    
+      <div class="modal texto-curso fade" id="modalEdicao" tabindex="-1" aria-labelledby="modalEdicao" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title texto-curso" id="exampleModalLabel">Alterar cadastro:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="cadastroForm" (ngSubmit)="editarCurso()">
+                    <div class="form-group">
+                      <label for="nome">Nome:</label>
+                      <input type="text" formControlName="nome" class="form-control" id="nome">
+                    </div>
+                    <div class="form-group">
+                      <label for="descricao">Descrição:</label>
+                      <textarea formControlName="descricao" class="form-control" id="descricao"></textarea>
+                    </div>
+                    <button type="submit" id="botaoEditar" class="btn btn-primary">Alterar</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="modalAdicionar" tabindex="-1" aria-labelledby="modalAdicionar" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title  texto-curso" id="examplemodalAdicionar">Alterar cadastro:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Selecionar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of listaProfessor">
+                      <th scope="row">{{p.id}}</th>
+                      <td>{{p.nome}}</td>
+                      <td><button class="btn btn-adicionar-prof" (click)="adicionarProfessor(p.id)">Selecionar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-12 p-4">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Detalhes da aula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of curso.aulas">
+            <th scope="row">{{a.id}}</th>
+            <td>{{a.nome}}</td>
+            <td><button class="btn btn-pagina-aula" (click)="detalhesAula(a.id)">Página da aula</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+
+.btn-pagina-curso{
+    background-color: #183153;
+    color: white;
+    min-width: 250px;
+    
+}
+
+.btn-pagina-curso:hover{
+    background-color: #244981;
+}
+
+.btn-matricular{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #183153;
+    color: #183153;
+}
+
+.btn-matricular:hover{
+    background-color: #183153;
+    color: white;
+}

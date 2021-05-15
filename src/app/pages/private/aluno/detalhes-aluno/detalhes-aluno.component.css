@@ -1,0 +1,41 @@
+.dados-aluno{
+    background-color: #183153;
+    border-radius: 15px;
+    color: white;
+    padding: 30px;
+}
+
+.dados-aluno span{
+    font-weight: 600;
+}
+
+.btn-editar{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-editar:hover{
+    background-color: white;
+    color: #183153;
+}
+
+.btn-pagina-curso{
+    background-color: #183153;
+    color: white;
+}
+
+.btn-pagina-curso:hover{
+    background-color: #244981;
+}
+
+.btn-desmatricular{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #183153;
+    color: #183153;
+}
+
+.btn-desmatricular:hover{
+    background-color: #183153;
+    color: white;
+}

@@ -1,3 +1,40 @@
-<div>
-  <nav></nav>
-</div>
+<h2 class="titulo-home my-3">Bem vindo, {{usuario.nome}}</h2>
+<main>
+  <div *ngIf="usuario.tipo == 1; else elseBlock">
+    <div class="home">
+      <button class="btn-opcao-home h5" (click)="this.navegar('professor')">
+        <i class="fas fa-list-ul my-1"></i>
+        Lista de professores
+      </button>
+      <button class="btn-opcao-home h5" (click)="this.navegar('lista-curso')">
+        <i class="fas fa-list-ul my-1"></i>
+        Lista de cursos
+      </button>
+      <button class="btn-opcao-home h5" (click)="this.navegar('curso')">
+        <i class="fas fa-book-open my-1"></i>
+        Cadastrar um curso
+      </button>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="home">
+      <button class="btn-opcao-home h5" (click)="this.navegar('aluno')">
+        <i class="fas fa-list-ul my-1"></i>
+        Lista de alunos
+      </button>
+      <button class="btn-opcao-home h5" (click)="this.navegar('aluno/detalhes-aluno')">
+        <i class="fas fa-user my-1"></i>
+        Meus dados
+      </button>
+      <button class="btn-opcao-home h5" (click)="this.navegar('lista-curso')">
+        <i class="fas fa-list-ul my-1"></i>
+        Lista de cursos
+      </button>
+    </div>
+  </ng-template>
+  <div class="dropdown-divider my-3"></div>
+  <div class="avisos">
+    <h4 class="titulo-home">Avisos</h4>
+    <p class="light my-5"><i class="fas fa-info-circle"></i> Não há avisos a serem mostrados</p>
+  </div>
+</main>

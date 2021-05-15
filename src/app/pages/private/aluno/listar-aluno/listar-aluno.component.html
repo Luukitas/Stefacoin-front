@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cursos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of listaAluno">
+        <th class="align-middle" scope="row">{{a.id}}</th>
+        <td class="align-middle">{{a.nome}}</td>
+        <td>{{a.cursos.nome}}
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let c of a.cursos">{{c.nome}}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>

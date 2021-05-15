@@ -1,0 +1,29 @@
+<p class="h3">Cadastrar Aula</p>
+<div>
+    <div>
+        <form [formGroup]="cadastroForm" (ngSubmit)="cadastrarAula()">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" formControlName="nome" class="form-control" id="nome">
+          </div>
+          <div class="form-group">
+            <label for="duracao">Duração (Em minutos):</label>
+            <input type="number" formControlName="duracao" class="form-control" id="duracao">
+          </div>
+          <div class="form-group">
+            <label for="topico">Tópicos da aula:</label>
+            <div class="input-group">
+              <input type="text" formControlName="topicos" class="form-control" id="topico" aria-describedby="btnAdicionarTopico">
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" id="btnAdicionarTopico" (click)="adicionarTopico()">Adicionar</button>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span *ngFor="let t of topicos" class="badge badge-pill badge-info p-2 mx-1 h6">{{t}}</span>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+</div>

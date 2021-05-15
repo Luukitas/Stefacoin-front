@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     senha: new FormControl('', Validators.required),
   });
 
+  public usuario: any
+
   constructor(private authService: AuthService, private toastr: ToastrService, private router: Router) {}
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
       (login) => {
         this.authService.setToken(login.token);
         this.authService.setUsuario(login.usuario);
+        this.usuario = this.authService.getUsuario()
+        console.log(this.usuario)
         this.router.navigate(['']);
       },
       (err) => {

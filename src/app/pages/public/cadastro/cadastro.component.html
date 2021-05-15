@@ -1,1 +1,49 @@
-<p>cadastro works!</p>
+<div class="box">
+  <div class="logo">
+    <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQF79y_qYPJ0_g/company-logo_200_200/0/1580386329799?e=2159024400&v=beta&t=WCrO-7lBwzK7yYfaWadqF6K2Fk4x2cl71_0gvfdOq0A" alt="logo" class="logo">
+    <p>Stefacoin</p>
+  </div>
+  <button class="botaoTipoCadastro" type="button" (click)="mudarTipoCadastro()">{{botaoTipoCadastro}}</button> 
+  <div id="cadastroProfessor">
+    <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar(1)">
+      <div class="form-group">
+        <label for="pf-nome">Nome</label>
+        <input type="text" formControlName="nome" class="form-control" id="pf-nome">
+      </div>
+      <div class="form-group">
+          <label for="pf-email">E-mail</label>
+          <input type="email" formControlName="email" class="form-control" id="pf-email">
+        </div>
+      <div class="form-group">
+        <label for="pf-senha">Senha</label>
+        <input type="password" formControlName="senha" class="form-control" id="spf-enha">
+      </div>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
+  <div id="cadastroAluno">
+    <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar(2)">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" formControlName="nome" class="form-control" id="nome">
+      </div>
+      <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" formControlName="email" class="form-control" id="email">
+        </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" formControlName="senha" class="form-control" id="senha">
+      </div>
+      <div class="form-group">
+        <label for="idade">Idade</label>
+        <input type="number" formControlName="idade" class="form-control" id="idade">
+      </div>
+      <div class="form-group">
+        <label for="formacao">Formação</label>
+        <input type="text" formControlName="formacao" class="form-control" id="formacao">
+      </div>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>  
+</div>

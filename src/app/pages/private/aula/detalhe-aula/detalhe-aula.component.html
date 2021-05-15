@@ -1,0 +1,19 @@
+<div class="row my-4">
+    <div class="col-lg-3 col-md-12 opcoes-aula ">
+        <div class="row px-1" *ngIf="usuario.tipo == 1">
+            <p class="h5">O que você deseja fazer?</p>
+            <button class="btn btn-editar col-12 my-3" (click)="editarAula()">Editar Aula</button>
+            <button class="btn btn-danger col-12" (click)="excluirAula()">Excluir Aula</button>
+        </div>
+        
+    </div>
+    <div class="col-lg-9 col-md-12 p-4">
+        <p class="h3">Dados da aula</p>
+        <p>Nome: {{aula.nome}}</p>
+        <p>Duração: {{aula.duracao}} minutos</p>
+        <p>Tópicos:</p>
+        <ul>
+            <li *ngFor="let topico of aula.topicos"><p>{{topico}}</p></li>
+        </ul>
+    </div>
+</div>

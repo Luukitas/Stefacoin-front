@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Página do curso</th>
+        <th *ngIf="usuario.tipo == 2" scope="col">Se matricular</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of listaCurso">
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.nome}}</td>
+        <td>{{c.descricao}}</td>
+        <td><button class="btn btn-pagina-curso" (click)="navegar(c.id)">Pagina do curso</button></td>
+        <td *ngIf="usuario.tipo == 2"><button class="btn btn-matricular" (click)="matricularEmCurso(c)">Se matricular</button></td>
+      </tr>
+    </tbody>
+  </table>
+

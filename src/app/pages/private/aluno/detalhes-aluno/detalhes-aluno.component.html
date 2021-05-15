@@ -1,0 +1,68 @@
+<div class="row my-5">
+    <div class="col-3 dados-aluno">
+      <h3>Meus dados</h3>
+      <p>Nome: <span>{{aluno.nome}}</span></p>
+      <p>E-mail: <span>{{aluno.email}}</span></p>
+      <p>Idade: <span>{{aluno.idade}}</span></p>
+      <p>Formação: <span>{{aluno.formacao}}</span></p>
+      <div class="align-bottom my-4 mt-5 justify-content-center">
+        <button type="button" class="btn btn-editar" data-toggle="modal" data-target="#modalEdicao" (click)="abrirEditar(aluno.id)">Editar cadastro</button>
+        <button class="btn btn-danger my-2" (click)="excluirAluno(aluno.id)">Excluir cadastro</button>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-12 p-4">
+      <p class="h4">Meus cursos</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Página do curso</th>
+            <th scope="col">Desmatricular</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of aluno.cursos; let i = index">
+            <th scope="row">{{c.id}}</th>
+            <td>{{c.nome}}</td>
+            <td><button class="btn btn-pagina-curso" (click)="irPaginaCurso(c.id)">Página do curso</button></td>
+            <td><button class="btn btn-desmatricular" (click)="desmatricular(i)">desmatricular</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEdicao" tabindex="-1" aria-labelledby="modalEdicao" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Alterar cadastro:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="cadastroForm" (ngSubmit)="editarAluno()">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" formControlName="nome" class="form-control" id="nome">
+              </div>
+              <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" formControlName="senha" class="form-control" id="senha">
+              </div>
+              <div class="form-group">
+                <label for="idade">Idade</label>
+                <input type="number" formControlName="idade" class="form-control" id="idade">
+              </div>
+              <div class="form-group">
+                <label for="formacao">Formação</label>
+                <input type="text" formControlName="formacao" class="form-control" id="formacao">
+              </div>
+              <button type="submit" class="btn btn-primary">Alterar</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

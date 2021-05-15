@@ -1,0 +1,45 @@
+.dados-curso{
+    background-color: #183153;
+    border-radius: 15px;
+    color: white;
+    padding: 30px;
+}
+
+.dados-curso span{
+    font-weight: 600;
+}
+
+.btn-pagina-aula{
+    background-color: #183153;
+    color: white;
+}
+
+.btn-pagina-aula:hover{
+    background-color: #244981;
+}
+
+.btn-adicionar-prof{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #183153;
+    color: #183153;
+}
+
+.btn-adicionar-prof:hover{
+    background-color: #183153;
+    color: white;
+}
+
+.btn-editar{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-editar:hover{
+    background-color: white;
+    color: #183153;
+}
+
+.texto-curso{
+    color: #001c40!important; 
+}
